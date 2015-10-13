@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="148.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.CrashPopupController">
+   <children>
+      <Text fontSmoothingType="LCD" layoutX="12.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ein unerwarteter Fehler ist aufgetreten und die Anwendung muss beendet werden. Wenn Sie damit einverstanden sind, bestätigen Sie bitte." textAlignment="CENTER" wrappingWidth="917.73779296875">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Button layoutX="439.0" layoutY="109.0" mnemonicParsing="false" onAction="#handleOKAction" prefHeight="25.0" prefWidth="103.0" text="OK" />
+      <CheckBox layoutX="196.0" layoutY="83.0" mnemonicParsing="false" text="Ich bin damit einverstanden, Daten über diesen Absturz an den Entwickler zu schicken" />
+   </children>
+</AnchorPane>
