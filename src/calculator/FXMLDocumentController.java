@@ -15,15 +15,31 @@ import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  *
  * @author ilja
  */
 public class FXMLDocumentController implements Initializable {
+
+    @FXML
+    private void handleTestAction(ActionEvent event) throws Exception {
+        ((Node) (event.getSource())).getScene().getWindow().hide();
+        Parent parent = FXMLLoader.load(getClass().getResource("/calculator/CrashPopup.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.setTitle("Teeeeest");
+        stage.show();
+    }
 
     private enum State {
 
@@ -38,7 +54,7 @@ public class FXMLDocumentController implements Initializable {
     private String digit;
     private boolean equaled = false;
     Random r = new Random();
-    int i1 = r.nextInt(6 - 0) + 0;
+    int i1;
 
     private State state = State.EQUALED;
 
@@ -137,7 +153,19 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void handleEqualAction(ActionEvent event) {
+    private void handleEqualAction(ActionEvent event) throws Exception{
+
+        i1 = r.nextInt(3 - 0) + 0;
+
+        if (i1 == 1) {
+            ((Node) (event.getSource())).getScene().getWindow().hide();
+            Parent parent = FXMLLoader.load(getClass().getResource("/calculator/CrashPopup.fxml"));
+            Stage stage = new Stage();
+            Scene scene = new Scene(parent);
+            stage.setScene(scene);
+            stage.setTitle("Teeeeest");
+            stage.show();
+        }
 
         switch (operator) {
             case "+":
@@ -195,7 +223,6 @@ public class FXMLDocumentController implements Initializable {
         }
     }
 
-    @FXML
     private void handleZeroAction(ActionEvent event) {
         digit = ((Button) event.getSource()).getText();
         oldText = displayField.getText();
@@ -206,5 +233,4 @@ public class FXMLDocumentController implements Initializable {
         }
         displayField.setText(newText);
     }
-
 }

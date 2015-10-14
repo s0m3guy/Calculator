@@ -51,6 +51,7 @@
             <Button alignment="CENTER" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleOperator" text="/" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
             <Button alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleClearAction" text="C" textAlignment="CENTER" textOverrun="CLIP" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
             <Button alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleClearEntryAction" text="CE" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#handleTestAction" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="48.0" layoutY="14.0" prefHeight="40.0" prefWidth="128.0" text="Calculator v3" textAlignment="CENTER" textFill="#0a0a0a" AnchorPane.rightAnchor="48.0">
