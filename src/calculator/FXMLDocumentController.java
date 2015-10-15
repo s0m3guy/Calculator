@@ -22,6 +22,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 /**
@@ -46,7 +48,7 @@ public class FXMLDocumentController implements Initializable {
         EQUALED, FIRST, SECOND, OPERATOR
     }
 
-    private String operator = "+";
+    public static String operator = "+";
     private double oldValue = 0;
     private double newValue = 0;
     private double result = 0;
@@ -96,8 +98,11 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void handleDigitAction(ActionEvent event) {
-
         digit = ((Button) event.getSource()).getText();
+        handleDigit(digit);
+    }
+
+    public void handleDigit(String digit) {
         if (state == State.FIRST || state == State.SECOND) {
             oldText = displayField.getText();
         } else {
@@ -122,8 +127,13 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleOperator(ActionEvent event) {
 
+        String buttonText = ((Button) event.getSource()).getText();
+        operatorPressed(buttonText);
+    }
+
+    public void operatorPressed(String buttonText) {
         if (state == State.EQUALED) {
-            operator = ((Button) event.getSource()).getText();
+            operator = buttonText;
         }
 
         if (state == State.SECOND) {
@@ -148,25 +158,27 @@ public class FXMLDocumentController implements Initializable {
             displayField.setText(String.valueOf(nf.format(oldValue)));
         }
 
-        operator = ((Button) event.getSource()).getText();
+        operator = buttonText;
         state = State.OPERATOR;
     }
 
     @FXML
-    private void handleEqualAction(ActionEvent event) throws Exception{
+    private void handleEqualAction(ActionEvent event) throws Exception {
+        handleEqual();
+    }
 
-        i1 = r.nextInt(3 - 0) + 0;
+    public void handleEqual() {
+        i1 = r.nextInt(6 - 0) + 0;
 
-        if (i1 == 1) {
-            ((Node) (event.getSource())).getScene().getWindow().hide();
-            Parent parent = FXMLLoader.load(getClass().getResource("/calculator/CrashPopup.fxml"));
-            Stage stage = new Stage();
-            Scene scene = new Scene(parent);
-            stage.setScene(scene);
-            stage.setTitle("Teeeeest");
-            stage.show();
-        }
-
+//        if (i1 == 1) {
+//            ((Node) (event.getSource())).getScene().getWindow().hide();
+//            Parent parent = FXMLLoader.load(getClass().getResource("/calculator/CrashPopup.fxml"));
+//            Stage stage = new Stage();
+//            Scene scene = new Scene(parent);
+//            stage.setScene(scene);
+//            stage.setTitle("Unerwarteter Fehler");
+//            stage.show();
+//        }
         switch (operator) {
             case "+":
                 oldValue += newValue;
@@ -184,12 +196,8 @@ public class FXMLDocumentController implements Initializable {
                 break;
         }
         result = oldValue;
-//	    newValue = 0;
-//	    operator = "+";
         displayField.setText(String.valueOf(nf.format(oldValue)));
-
         state = State.EQUALED;
-
     }
 
     @FXML
@@ -224,12 +232,15 @@ public class FXMLDocumentController implements Initializable {
     }
 
     private void handleZeroAction(ActionEvent event) {
-        digit = ((Button) event.getSource()).getText();
+        handleZero();
+    }
+
+    public void handleZero() {
         oldText = displayField.getText();
         if ("0".equals(oldText) || "0.0".equals(oldText)) {
             newText = oldText;
         } else {
-            newText = oldText + digit;
+            newText = oldText + "0";
         }
         displayField.setText(newText);
     }
