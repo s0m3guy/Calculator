@@ -28,34 +28,34 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                
-                <Button alignment="CENTER" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="4" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                <Button focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="5" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+
+                <Button alignment="CENTER" focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="4" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                     <GridPane.margin>
                         <Insets />
                     </GridPane.margin>
                 </Button>
-                <TextField fx:id="displayField" alignment="CENTER_RIGHT" prefWidth="138.0" GridPane.columnSpan="2147483647" />
-                <Button minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="5" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                <Button minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="6" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                <Button minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleOperator" text="*" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                <Button minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                <Button alignment="CENTER" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                <Button alignment="CENTER" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="3" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                <Button alignment="CENTER" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleOperator" text="-" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                <Button alignment="CENTER" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-                <Button alignment="CENTER" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDotAction" text="." GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-                <Button alignment="CENTER" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleEqualAction" text="=" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-                <Button minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleOperator" text="+" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-                <Button alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="7" textAlignment="CENTER" textOverrun="CLIP" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                <Button contentDisplay="CENTER" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="8" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                <Button alignment="CENTER" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="9" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                <Button alignment="CENTER" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleOperator" text="/" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                <Button alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleClearAction" text="C" textAlignment="CENTER" textOverrun="CLIP" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                <Button alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleClearEntryAction" text="CE" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                <Button mnemonicParsing="false" onAction="#handleTestAction" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <TextField fx:id="displayField" alignment="CENTER_RIGHT" focusTraversable="false" prefWidth="138.0" GridPane.columnSpan="2147483647" />
+                <Button focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="6" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                <Button focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleOperator" text="*" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                <Button focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                <Button alignment="CENTER" focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                <Button alignment="CENTER" focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="3" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                <Button alignment="CENTER" focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleOperator" text="-" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                <Button alignment="CENTER" focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                <Button alignment="CENTER" focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDotAction" text="." GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                <Button alignment="CENTER" focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleEqualAction" text="=" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                <Button focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleOperator" text="+" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="7" textAlignment="CENTER" textOverrun="CLIP" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                <Button contentDisplay="CENTER" focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="8" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                <Button alignment="CENTER" focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="9" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                <Button alignment="CENTER" focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleOperator" text="/" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleClearAction" text="C" textAlignment="CENTER" textOverrun="CLIP" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleClearEntryAction" text="CE" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                <Button focusTraversable="false" mnemonicParsing="false" onAction="#handleTestAction" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             </children>
         </GridPane>
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="48.0" layoutY="14.0" prefHeight="40.0" prefWidth="128.0" text="Calculator v3" textAlignment="CENTER" textFill="#0a0a0a" AnchorPane.rightAnchor="48.0">
+        <Label alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="48.0" layoutY="14.0" prefHeight="40.0" prefWidth="128.0" text="Calculator v3" textAlignment="CENTER" textFill="#0a0a0a" AnchorPane.rightAnchor="48.0">
             <font>
                 <Font size="17.0" />
             </font>
