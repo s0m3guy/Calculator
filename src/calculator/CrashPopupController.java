@@ -7,9 +7,11 @@ package calculator;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 
 /**
  * FXML Controller class
@@ -17,6 +19,8 @@ import javafx.fxml.Initializable;
  * @author ilja
  */
 public class CrashPopupController implements Initializable {
+    @FXML
+    private Button btnOK;
 
     /**
      * Initializes the controller class.
@@ -24,10 +28,13 @@ public class CrashPopupController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        btnOK.defaultButtonProperty().bind(btnOK.focusedProperty());
     }    
 
     @FXML
     private void handleOKAction(ActionEvent event) {
+        Platform.exit();
+        System.exit(5);
     }
     
 }
