@@ -6,6 +6,7 @@
  */
 package calculator;
 
+import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -165,18 +166,19 @@ public class FXMLDocumentController implements Initializable {
         handleEqual();
     }
 
-    public void handleEqual() {
+    public void handleEqual() throws IOException {
         i1 = r.nextInt(6 - 0) + 0;
 
-//        if (i1 == 1) {
+        if (i1 == 1) {
 //            ((Node) (event.getSource())).getScene().getWindow().hide();
-//            Parent parent = FXMLLoader.load(getClass().getResource("/calculator/CrashPopup.fxml"));
-//            Stage stage = new Stage();
-//            Scene scene = new Scene(parent);
-//            stage.setScene(scene);
-//            stage.setTitle("Unerwarteter Fehler");
-//            stage.show();
-//        }
+            
+            Parent parent = FXMLLoader.load(getClass().getResource("/calculator/CrashPopup.fxml"));
+            Stage stage = new Stage();
+            Scene scene = new Scene(parent);
+            stage.setScene(scene);
+            stage.setTitle("Unerwarteter Fehler");
+            stage.show();
+        }
         switch (operator) {
             case "+":
                 oldValue += newValue;

@@ -5,6 +5,9 @@
  */
 package calculator;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -22,10 +25,7 @@ public class Calculator3 extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        
-        TextField tf1 = new TextField();
-        tf1.requestFocus();
-        
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
         Parent root = loader.load();
         FXMLDocumentController controller = loader.getController();
@@ -41,7 +41,13 @@ public class Calculator3 extends Application {
 
                 switch (keyEvent.getCode()) {
                     case ENTER:
+                {
+                    try {
                         controller.handleEqual();
+                    } catch (IOException ex) {
+                        Logger.getLogger(Calculator3.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
                         System.out.println("Enter");
                         break;
                     case ADD:
