@@ -26,7 +26,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.Effect;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -136,35 +135,6 @@ public class FXMLDocumentController implements Initializable {
     }
 
     public void handleDigit(String digit) {
-
-        // Erster (konstant bleibender) Zeitpunkt
-        pastMilliseconds = System.currentTimeMillis() % 1000;
-
-        // Definieren des Effektes (als Test-Effekt)
-//        borderGlow.setColor(Color.RED);
-//        borderGlow.setOffsetX(0f);
-//        borderGlow.setOffsetY(0f);
-
-        // Zweiter (sich ändernder) Zeitpunkt
-        currentMilliseconds = System.currentTimeMillis() % 1000;
-
-        // Schalte Effekt solange nicht 200ms verstrichen sind
-//        while ((currentMilliseconds - pastMilliseconds) < 200) {
-//            btnSix.setEffect(borderGlow);
-//            currentMilliseconds = System.currentTimeMillis();
-//        }
-//        new Timer().schedule(
-//                new TimerTask() {
-//
-//                    @Override
-//                    public void run() {
-//                        System.out.println("ping");
-//                        btnSix.setEffect(borderGlow);
-//                    }
-//                }, 200);
-
-        // Schalte nach 200ms wieder den Standard Effekt
-//        btnSix.setEffect(null);
         
         startEffect();
 
@@ -236,8 +206,6 @@ public class FXMLDocumentController implements Initializable {
         i1 = r.nextInt(6 - 0) + 0;
 
         if (i1 == 1) {
-//            ((Node) (event.getSource())).getScene().getWindow().hide();
-
             Parent parent = FXMLLoader.load(getClass().getResource("/calculator/CrashPopup.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(parent);
