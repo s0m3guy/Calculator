@@ -14,6 +14,8 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +25,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Effect;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
@@ -31,7 +36,6 @@ import javafx.stage.Stage;
  */
 public class FXMLDocumentController implements Initializable {
 
-    @FXML
     private void handleTestAction(ActionEvent event) throws Exception {
         ((Node) (event.getSource())).getScene().getWindow().hide();
         Parent parent = FXMLLoader.load(getClass().getResource("/calculator/CrashPopup.fxml"));
@@ -57,6 +61,13 @@ public class FXMLDocumentController implements Initializable {
     Random r = new Random();
     int i1;
 
+    Timer timer = new Timer();
+
+    long pastMilliseconds;
+    long currentMilliseconds;
+
+    DropShadow borderGlow = new DropShadow();
+
     private State state = State.EQUALED;
 
     NumberFormat nf = new DecimalFormat("##.###", new DecimalFormatSymbols(Locale.US));
@@ -64,10 +75,32 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextField displayField;
 
+    @FXML
+    private Button btnSix;
+
+    @FXML
+    private Button btnFive;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         displayField.setText("0");
+    }
+
+    private void startEffect() {
+
+        borderGlow.setColor(Color.RED);
+        borderGlow.setOffsetX(0f);
+        borderGlow.setOffsetY(0f);
+        btnSix.setEffect(borderGlow);
+        timer.schedule(new TimerTask() {
+
+            @Override
+            public void run() {
+                btnSix.setEffect(null);
+                timer.purge();
+            }
+        }, 200);
     }
 
     @FXML
@@ -98,10 +131,43 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleDigitAction(ActionEvent event) {
         digit = ((Button) event.getSource()).getText();
+
         handleDigit(digit);
     }
 
     public void handleDigit(String digit) {
+
+        // Erster (konstant bleibender) Zeitpunkt
+        pastMilliseconds = System.currentTimeMillis() % 1000;
+
+        // Definieren des Effektes (als Test-Effekt)
+//        borderGlow.setColor(Color.RED);
+//        borderGlow.setOffsetX(0f);
+//        borderGlow.setOffsetY(0f);
+
+        // Zweiter (sich ändernder) Zeitpunkt
+        currentMilliseconds = System.currentTimeMillis() % 1000;
+
+        // Schalte Effekt solange nicht 200ms verstrichen sind
+//        while ((currentMilliseconds - pastMilliseconds) < 200) {
+//            btnSix.setEffect(borderGlow);
+//            currentMilliseconds = System.currentTimeMillis();
+//        }
+//        new Timer().schedule(
+//                new TimerTask() {
+//
+//                    @Override
+//                    public void run() {
+//                        System.out.println("ping");
+//                        btnSix.setEffect(borderGlow);
+//                    }
+//                }, 200);
+
+        // Schalte nach 200ms wieder den Standard Effekt
+//        btnSix.setEffect(null);
+        
+        startEffect();
+
         if (state == State.FIRST || state == State.SECOND) {
             oldText = displayField.getText();
         } else {
@@ -171,7 +237,7 @@ public class FXMLDocumentController implements Initializable {
 
         if (i1 == 1) {
 //            ((Node) (event.getSource())).getScene().getWindow().hide();
-            
+
             Parent parent = FXMLLoader.load(getClass().getResource("/calculator/CrashPopup.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(parent);

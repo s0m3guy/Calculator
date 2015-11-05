@@ -28,7 +28,14 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="5" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                <Button fx:id="btnFive" focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="5" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <effect>
+                  <Lighting bumpInput="$null">
+                     <light>
+                        <Light.Distant color="#8a7f7f" />
+                     </light>
+                  </Lighting>
+               </effect></Button>
 
                 <Button alignment="CENTER" focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="4" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                     <GridPane.margin>
@@ -36,7 +43,7 @@
                     </GridPane.margin>
                 </Button>
                 <TextField fx:id="displayField" alignment="CENTER_RIGHT" focusTraversable="false" prefWidth="138.0" GridPane.columnSpan="2147483647" />
-                <Button focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="6" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                <Button fx:id="btnSix" focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="6" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                 <Button focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleOperator" text="*" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                 <Button focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
                 <Button alignment="CENTER" focusTraversable="false" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleDigitAction" text="2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
