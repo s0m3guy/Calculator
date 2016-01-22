@@ -142,7 +142,6 @@ public class Calculator3 extends Application {
                         controller.handleZero();
                         System.out.println("0");
                         break;
-
                 }
             }
         }

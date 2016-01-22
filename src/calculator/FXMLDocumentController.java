@@ -26,6 +26,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Lighting;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -66,6 +67,7 @@ public class FXMLDocumentController implements Initializable {
     long currentMilliseconds;
 
     DropShadow borderGlow = new DropShadow();
+    Lighting lighting = new Lighting();
 
     private State state = State.EQUALED;
 
@@ -75,10 +77,49 @@ public class FXMLDocumentController implements Initializable {
     private TextField displayField;
 
     @FXML
-    private Button btnSix;
+    private Button btnOne;
+
+    @FXML
+    private Button btnTwo;
+
+    @FXML
+    private Button btnThree;
+
+    @FXML
+    private Button btnFour;
 
     @FXML
     private Button btnFive;
+
+    @FXML
+    private Button btnSix;
+
+    @FXML
+    private Button btnSeven;
+
+    @FXML
+    private Button btnEight;
+
+    @FXML
+    private Button btnNine;
+
+    @FXML
+    private Button btnZero;
+
+    @FXML
+    private Button btnEqual;
+
+    @FXML
+    private Button btnDivide;
+
+    @FXML
+    private Button btnMultiply;
+
+    @FXML
+    private Button btnSubtract;
+
+    @FXML
+    private Button btnAdd;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -86,17 +127,116 @@ public class FXMLDocumentController implements Initializable {
         displayField.setText("0");
     }
 
-    private void startEffect() {
+    private void startEffect(String button) {
 
         borderGlow.setColor(Color.RED);
         borderGlow.setOffsetX(0f);
         borderGlow.setOffsetY(0f);
-        btnSix.setEffect(borderGlow);
+
+        switch (button) {
+            case "1":
+                btnOne.setEffect(lighting);
+                break;
+            case "2":
+                btnTwo.setEffect(lighting);
+                break;
+            case "3":
+                btnThree.setEffect(lighting);
+                break;
+            case "4":
+                btnFour.setEffect(lighting);
+                break;
+            case "5":
+                btnFive.setEffect(lighting);
+                break;
+            case "6":
+                btnSix.setEffect(lighting);
+                break;
+            case "7":
+                btnSeven.setEffect(lighting);
+                break;
+            case "8":
+                btnEight.setEffect(lighting);
+                break;
+            case "9":
+                btnNine.setEffect(lighting);
+                break;
+            case "0":
+                btnZero.setEffect(lighting);
+                break;
+            case "=":
+                btnEqual.setEffect(lighting);
+                break;
+            case "/":
+                btnDivide.setEffect(lighting);
+                break;
+            case "*":
+                btnMultiply.setEffect(lighting);
+                break;
+            case "-":
+                btnSubtract.setEffect(lighting);
+                break;
+            case "+":
+                btnAdd.setEffect(lighting);
+                break;
+        }
+//        btnSix.setEffect(lighting);
         timer.schedule(new TimerTask() {
 
             @Override
             public void run() {
-                btnSix.setEffect(null);
+//                btnSix.setEffect(null);
+
+                switch (button) {
+                    case "1":
+                        btnOne.setEffect(null);
+                        break;
+                    case "2":
+                        btnTwo.setEffect(null);
+                        break;
+                    case "3":
+                        btnThree.setEffect(null);
+                        break;
+                    case "4":
+                        btnFour.setEffect(null);
+                        break;
+                    case "5":
+                        btnFive.setEffect(null);
+                        break;
+                    case "6":
+                        btnSix.setEffect(null);
+                        break;
+                    case "7":
+                        btnSeven.setEffect(null);
+                        break;
+                    case "8":
+                        btnEight.setEffect(null);
+                        break;
+                    case "9":
+                        btnNine.setEffect(null);
+                        break;
+                    case "0":
+                        btnZero.setEffect(null);
+                        break;
+                    case "=":
+                        btnEqual.setEffect(null);
+                        break;
+                    case "/":
+                        btnDivide.setEffect(null);
+                        break;
+                    case "*":
+                        btnMultiply.setEffect(null);
+                        break;
+                    case "-":
+                        btnSubtract.setEffect(null);
+                        break;
+                    case "+":
+                        btnAdd.setEffect(null);
+                        break;
+                    default:
+                        break;
+                }
+
                 timer.purge();
             }
         }, 200);
@@ -135,8 +275,8 @@ public class FXMLDocumentController implements Initializable {
     }
 
     public void handleDigit(String digit) {
-        
-        startEffect();
+
+        startEffect(digit);
 
         if (state == State.FIRST || state == State.SECOND) {
             oldText = displayField.getText();
@@ -167,10 +307,13 @@ public class FXMLDocumentController implements Initializable {
     }
 
     public void operatorPressed(String buttonText) {
+
         if (state == State.EQUALED) {
             operator = buttonText;
         }
-
+        
+        startEffect(operator);
+        
         if (state == State.SECOND) {
             switch (operator) {
                 case "+":
@@ -203,6 +346,8 @@ public class FXMLDocumentController implements Initializable {
     }
 
     public void handleEqual() throws IOException {
+        startEffect("=");
+
         i1 = r.nextInt(6 - 0) + 0;
 
         if (i1 == 1) {
@@ -270,6 +415,9 @@ public class FXMLDocumentController implements Initializable {
     }
 
     public void handleZero() {
+
+        startEffect("0");
+
         oldText = displayField.getText();
         if ("0".equals(oldText) || "0.0".equals(oldText)) {
             newText = oldText;
