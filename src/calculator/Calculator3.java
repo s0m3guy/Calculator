@@ -30,8 +30,10 @@ public class Calculator3 extends Application {
         FXMLDocumentController controller = loader.getController();
 
         Scene scene_main = new Scene(root);
+        controller.stage = stage;
 
         stage.setScene(scene_main);
+        stage.setOnCloseRequest(e -> controller.timer.cancel());
         stage.show();
 
         scene_main.setOnKeyPressed(new EventHandler<KeyEvent>() {

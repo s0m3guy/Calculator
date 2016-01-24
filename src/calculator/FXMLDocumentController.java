@@ -20,6 +20,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -28,6 +29,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Light;
 import javafx.scene.effect.Lighting;
+import javafx.scene.input.MouseDragEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -47,6 +50,33 @@ public class FXMLDocumentController implements Initializable {
         stage.show();
     }
 
+    @FXML
+    private void handleMouseEnteredFive(MouseEvent event) {
+        btnFive.alignmentProperty().set(Pos.CENTER_LEFT);
+        btnFive.setTextFill(Color.RED);
+    }
+
+    @FXML
+    private void handleMouseExitedFive(MouseEvent event) {
+        btnFive.alignmentProperty().set(Pos.CENTER);
+        btnFive.setTextFill(Color.BLACK);
+    }
+
+    @FXML
+    private void handleMouseExitedThree(MouseEvent event) {
+        btnThree.alignmentProperty().set(Pos.CENTER);
+    }
+
+    @FXML
+    private void handleMouseEnteredThree(MouseEvent event) {
+        btnThree.alignmentProperty().set(Pos.CENTER_LEFT);
+    }
+
+    @FXML
+    private void handleMouseMovedPlus(MouseEvent event) {
+//        btnThree.alignmentProperty().set(Pos.CENTER_LEFT);
+    }
+
     private enum State {
 
         EQUALED, FIRST, SECOND, OPERATOR
@@ -61,6 +91,7 @@ public class FXMLDocumentController implements Initializable {
     private boolean equaled = false;
     Random r = new Random();
     int i1;
+    public Stage stage;
 
     Timer timer = new Timer();
 
@@ -178,7 +209,8 @@ public class FXMLDocumentController implements Initializable {
                 btnSubtract.setEffect(lighting);
                 break;
             case "+":
-                btnAdd.setEffect(null);
+
+                btnAdd.setEffect(lighting);
                 break;
         }
 //        btnSix.setEffect(lighting);
@@ -312,9 +344,7 @@ public class FXMLDocumentController implements Initializable {
         if (state == State.EQUALED) {
             operator = buttonText;
         }
-        
-        startEffect(operator);
-        
+
         if (state == State.SECOND) {
             switch (operator) {
                 case "+":
@@ -338,6 +368,7 @@ public class FXMLDocumentController implements Initializable {
         }
 
         operator = buttonText;
+        startEffect(operator);
         state = State.OPERATOR;
     }
 
@@ -355,8 +386,8 @@ public class FXMLDocumentController implements Initializable {
             Parent parent = FXMLLoader.load(getClass().getResource("/calculator/CrashPopup.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(parent);
+            this.stage.close();
             stage.setScene(scene);
-            stage.setTitle("Unerwarteter Fehler");
             stage.show();
         }
         switch (operator) {
