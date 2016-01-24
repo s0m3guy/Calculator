@@ -27,10 +27,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
+//<<<<<<< HEAD
 import javafx.scene.effect.Light;
 import javafx.scene.effect.Lighting;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
+//=======
+import javafx.scene.effect.Lighting;
+//>>>>>>> 839bfa07d0633a5f91b5444129a61bc3cbceabdc
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -209,7 +213,10 @@ public class FXMLDocumentController implements Initializable {
                 btnSubtract.setEffect(lighting);
                 break;
             case "+":
+//<<<<<<< HEAD
 
+//=======
+//>>>>>>> 839bfa07d0633a5f91b5444129a61bc3cbceabdc
                 btnAdd.setEffect(lighting);
                 break;
         }
@@ -344,7 +351,9 @@ public class FXMLDocumentController implements Initializable {
         if (state == State.EQUALED) {
             operator = buttonText;
         }
-
+        
+        startEffect(operator);
+        
         if (state == State.SECOND) {
             switch (operator) {
                 case "+":
