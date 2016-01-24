@@ -213,10 +213,6 @@ public class FXMLDocumentController implements Initializable {
                 btnSubtract.setEffect(lighting);
                 break;
             case "+":
-//<<<<<<< HEAD
-
-//=======
-//>>>>>>> 839bfa07d0633a5f91b5444129a61bc3cbceabdc
                 btnAdd.setEffect(lighting);
                 break;
         }
