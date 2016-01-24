@@ -27,14 +27,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
-//<<<<<<< HEAD
 import javafx.scene.effect.Light;
 import javafx.scene.effect.Lighting;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
-//=======
 import javafx.scene.effect.Lighting;
-//>>>>>>> 839bfa07d0633a5f91b5444129a61bc3cbceabdc
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -54,7 +51,7 @@ public class FXMLDocumentController implements Initializable {
         stage.show();
     }
 
-    @FXML
+ @FXML
     private void handleMouseEnteredFive(MouseEvent event) {
         btnFive.alignmentProperty().set(Pos.CENTER_LEFT);
         btnFive.setTextFill(Color.RED);
